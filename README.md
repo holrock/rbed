@@ -9,7 +9,7 @@ fam, bim, bed = Rbed::Reader.new("test/data/test").load
 0.upto(fam.num_individuals() - 1) do |i|
   print fam[i].id, ' '
   0.upto(bim.num_snps() - 1) do |snp|
-    gt = bed.get_genotype(snp_index: snp, indiv_index: i)
+    gt = bed.get_genotype(snp, i)
     case gt
     when Rbed::Homo1
       print bim[snp].allel1 * 2
