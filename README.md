@@ -13,7 +13,6 @@ bed = r.bed
   print fam[i].id, ' '
   0.upto(bim.num_snps() - 1) do |snp|
     gt = bed.genotype(snp, i)
-
     case gt
     when Rbed::Homo1
       print bim[snp].allel1 * 2
