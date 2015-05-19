@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 require 'minitest_helper'
 Rbed.send(:remove_const, :Bed) if Rbed.const_defined?(:Bed)
 require 'rbed/bed.rb'
@@ -14,7 +16,7 @@ class TestRbed < Minitest::Test
   def test_c_ext
     assert_equal(false, @bed.c_ext?)
   end
-  
+
   def test_getterinterface
     assert_equal(3, @bed.num_snps)
     assert_equal(6, @bed.num_individuals)

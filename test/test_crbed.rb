@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-   
+
 require 'minitest_helper'
 
 class TestCRbed < Minitest::Test

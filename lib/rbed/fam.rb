@@ -8,10 +8,13 @@ module Rbed
 
     def load(filename)
       open(filename) do |input|
-        struct = Struct.new(:family_id, :id, :paternal_id, :maternal_id, :sex, :phenotype)
+        struct = Struct.new("FamData", :family_id, :id, :paternal_id, :maternal_id, :sex, :phenotype)
         input.each_line do |line|
           line.chomp!
-          @data << struct.new(*line.split(/\s+/))
+          f = struct.new(*line.split(/\s+/))
+          f.sex = f.sex.to_i
+          f.phenotype = f.phenotype.to_i
+          @data.push(f)
         end
       end
     end

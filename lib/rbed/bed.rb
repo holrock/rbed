@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-   
+# -*- coding: utf-8 -*-
 
 module Rbed
   class Bed
@@ -30,7 +30,7 @@ module Rbed
 
     def genotype(snp_index, indiv_index)
       index = get_byte_index(snp_index, indiv_index)
-      byte = @bytes.getbyte(index)
+      byte = @bytes[index].ord
 
       if indiv_index < INDIV_PER_BYTE
         return get_genotype_from_byte(byte, indiv_index)

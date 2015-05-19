@@ -8,7 +8,7 @@ module Rbed
 
     def load(filename)
       open(filename) do |input|
-        struct = Struct.new(:chromosome, :id, :distance, :posision, :allel1, :allel2)
+        struct = Struct.new("BimData", :chromosome, :id, :distance, :posision, :allel1, :allel2)
         input.each_line do |line|
           line.chomp!
           a =  line.split(/\s+/)
@@ -17,6 +17,7 @@ module Rbed
           @data.push(struct.new(*a))
         end
       end
+      @data.freeze
     end
 
     def num_snps
